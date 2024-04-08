@@ -14,5 +14,6 @@ namespace ProjetoBanco.Data
 
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Banco> Bancos { get; set; }
+        public DbSet<ApplicationUser> users { get; set; }
     }
 }

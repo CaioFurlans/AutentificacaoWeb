@@ -12,7 +12,12 @@ builder.Services.AddDbContext<ProjetoBanco.Data.IESContext>(options =>
         .GetConnectionString("IESConnection"));
 });
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<IESContext>();
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<IESContext>();
+
+builder.Services.AddDefaultIdentity<IdentityUser>()
+    .AddDefaultTokenProviders()
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<IESContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
